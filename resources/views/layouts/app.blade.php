@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="description" itemprop="description" content="@yield('description')">
   <meta name="keywords" itemprop="keywords" content="@yield('keywords')">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>@yield('title') | cocolabo chat</title>
   <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 </head>
