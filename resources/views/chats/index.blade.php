@@ -5,5 +5,7 @@
 @section('description', 'チャットアプリです')
 
 @section('content')
-  <p>{{date('Y-m-d H:i:s')}}</p>
+  <div id="app">
+    <chat-app />
+  </div>
 @endsection
