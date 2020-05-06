@@ -12,15 +12,18 @@ class ChatPublicEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    private $userId;
     private $message;
 
     /**
      * Create a new event instance.
      *
+     * @param string $userId
      * @param string $message
      */
-    public function __construct(string $message)
+    public function __construct(string $userId, string $message)
     {
+        $this->userId = $userId;
         $this->message = $message;
     }
 
@@ -41,6 +44,9 @@ class ChatPublicEvent implements ShouldBroadcast
      */
     public function broadcastWith()
     {
-        return ['message' => $this->message];
+        return [
+            'user_id' => $this->userId,
+            'message' => $this->message,
+        ];
     }
 }

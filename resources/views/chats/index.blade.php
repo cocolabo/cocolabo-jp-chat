@@ -6,6 +6,6 @@
 
 @section('content')
   <div id="app">
-    <chat-app />
+    <chat-app user-id="{{ session()->getId() }}" />
   </div>
 @endsection

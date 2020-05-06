@@ -16,19 +16,31 @@ export default {
     ChatList,
     ChatForm,
   },
+  props: {
+    userId: {
+      type: String,
+      require: true,
+    },
+  },
   data() {
     return {
       messages: [],
     }
   },
   mounted() {
-    window.Echo.channel('chat-public-event').listen('ChatPublicEvent', ({ message }) => {
+    window.Echo.channel('chat-public-event').listen('ChatPublicEvent', ({ user_id, message }) => {
+      // 自分自身のメッセージなら追加しない
+      if (this.userId === user_id) {
+        return
+      }
+
       this.messages.push(message)
     })
   },
   methods: {
     send(message) {
-      apiChat.post({ message })
+      this.messages.push(message)
+      apiChat.post({ user_id: this.userId, message })
     },
   },
 }
