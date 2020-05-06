@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::prefix('chat')->name('chat.')->group(function () {
+    Route::get('/', 'ChatController@index')->name('index');
 });
