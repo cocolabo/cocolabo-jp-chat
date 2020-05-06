@@ -1,6 +1,6 @@
 <template>
   <div>
-    <chat-list :messages="messages" />
+    <chat-list :chat-list="chatList" />
     <chat-form @parent-send="send" />
   </div>
 </template>
@@ -21,26 +21,31 @@ export default {
       type: String,
       require: true,
     },
+    userName: {
+      type: String,
+      require: true,
+    },
   },
   data() {
     return {
-      messages: [],
+      chatList: [],
     }
   },
   mounted() {
-    window.Echo.channel('chat-public-event').listen('ChatPublicEvent', ({ user_id, message }) => {
+    window.Echo.channel('chat-public-event').listen('ChatPublicEvent', ({ user_id, user_name, message }) => {
       // 自分自身のメッセージなら追加しない
       if (this.userId === user_id) {
         return
       }
 
-      this.messages.push(message)
+      this.chatList.push({ user_id, user_name, message })
     })
   },
   methods: {
     send(message) {
-      this.messages.push(message)
-      apiChat.post({ user_id: this.userId, message })
+      const chat = { user_id: this.userId, user_name: this.userName, message }
+      this.chatList.push(chat)
+      apiChat.post(chat)
     },
   },
 }

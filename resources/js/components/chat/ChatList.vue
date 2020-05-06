@@ -1,7 +1,7 @@
 <template>
   <ul>
-    <li v-for="(message, index) in messages" :key="index">
-      {{ message }}
+    <li v-for="(chat, index) in chatList" :key="index">
+      {{ chat.user_name }} : {{ chat.message }}
     </li>
   </ul>
 </template>
@@ -10,7 +10,7 @@
 export default {
   name: 'ChatList',
   props: {
-    messages: {
+    chatList: {
       type: Array,
       default: () => [],
     },

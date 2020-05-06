@@ -11,7 +11,7 @@ class ChatController extends Controller
 {
     public function store(Request $request): Response
     {
-        event(new ChatPublicEvent($request->user_id, $request->message));
+        event(new ChatPublicEvent($request->user_id, $request->user_name, $request->message));
         return response(null, 204);
     }
 }
