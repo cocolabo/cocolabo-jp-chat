@@ -1,6 +1,5 @@
 <?php
 
-use App\Events\ChatPublicEvent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +18,5 @@ Route::get('/', function () {
 });
 
 Route::prefix('chat')->name('chat.')->group(function () {
-    Route::get('/', function () {
-        event(new ChatPublicEvent('テストメッセージ'));
-    })->name('index');
+    Route::get('/', 'ChatController@index')->name('index');
 });
