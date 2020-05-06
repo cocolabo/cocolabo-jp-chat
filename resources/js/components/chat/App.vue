@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import apiChat from '@/apis/chat'
 import ChatList from './ChatList'
 import ChatForm from './ChatForm'
 
@@ -20,10 +21,14 @@ export default {
       messages: [],
     }
   },
+  mounted() {
+    window.Echo.channel('chat-public-event').listen('ChatPublicEvent', ({ message }) => {
+      this.messages.push(message)
+    })
+  },
   methods: {
     send(message) {
-      console.log(message)
-      this.messages.push(message)
+      apiChat.post({ message })
     },
   },
 }
