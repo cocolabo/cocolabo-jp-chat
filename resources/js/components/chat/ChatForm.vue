@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input v-model="message" type="text" />
+    <input v-model="message" type="text" @keydown.enter="send" />
     <button @click="send">></button>
   </div>
 </template>
@@ -14,7 +14,10 @@ export default {
     }
   },
   methods: {
-    send() {
+    send(event) {
+      if (event.keyCode !== undefined && event.keyCode !== 13) {
+        return
+      }
       this.$emit('parent-send', this.message)
       this.message = null
     },
