@@ -2,7 +2,7 @@
   <div class="container-fluid h-100 py-5">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <div class="card rounded-20 chats_index_card">
+        <div class="card rounded-20">
           <div class="card-header lead">
             Chat App
           </div>
