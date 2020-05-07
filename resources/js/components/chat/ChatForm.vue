@@ -4,7 +4,7 @@
       <textarea
         ref="focusMessage"
         v-model.trim="message"
-        class="form-control"
+        class="form-control chats_index__message"
         placeholder="Type your message..."
         @keydown.shift.enter="send"
       ></textarea>
