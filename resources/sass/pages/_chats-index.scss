@@ -1,0 +1,58 @@
+.chats_index {
+  &_card {
+    height: 600px;
+  }
+
+  &_card_body {
+    overflow-y: scroll;
+  }
+
+  &_send_btn {
+    background-color: $teal;
+    border-radius: 0 15px 15px 0;
+    color: white;
+    cursor: pointer;
+  }
+
+  &_container {
+    border-radius: 20px;
+    padding: 10px;
+    position: relative;
+    word-break: break-word;
+
+    &__left {
+      margin-left: 10px;
+      @include media-breakpoint-up(xs) {
+        margin-left: 5px;
+      }
+      background-color: $blue;
+    }
+
+    &__right {
+      margin-right: 10px;
+      @include media-breakpoint-up(xs) {
+        margin-right: 5px;
+      }
+      background-color: $green;
+    }
+  }
+
+  &_name {
+    font-size: 10px;
+  }
+
+  &_time {
+    position: absolute;
+    font-size: 10px;
+
+    &__left {
+      right: -30px;
+      bottom: 0;
+    }
+
+    &__right {
+      left: -30px;
+      bottom: 0;
+    }
+  }
+}

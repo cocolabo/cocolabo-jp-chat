@@ -1,7 +1,16 @@
 <template>
-  <div>
-    <chat-list :chat-list="chatList" />
-    <chat-form @parent-send="send" />
+  <div class="container-fluid h-100 py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card rounded-20 chats_index_card">
+          <div class="card-header lead">
+            Chat App
+          </div>
+          <chat-list :user-id="userId" :chat-list="chatList" />
+          <chat-form @parent-send="send" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -19,11 +28,11 @@ export default {
   props: {
     userId: {
       type: String,
-      require: true,
+      required: true,
     },
     userName: {
       type: String,
-      require: true,
+      required: true,
     },
   },
   data() {

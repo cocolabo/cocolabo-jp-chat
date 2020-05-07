@@ -10,7 +10,7 @@ class ChatController extends Controller
     public function index(Request $request): View
     {
         return view('chats.index', [
-            'userName' => $request->input('user_name', '名無し'),
+            'userName' => $request->input('user_name', 'anonymous'),
         ]);
     }
 }

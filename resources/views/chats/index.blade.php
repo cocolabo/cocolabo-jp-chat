@@ -5,7 +5,5 @@
 @section('description', 'チャットアプリです')
 
 @section('content')
-  <div id="app">
-    <chat-app user-id="{{ session()->getId() }}" user-name=" {{ $userName }}"/>
-  </div>
+  <chat-app user-id="{{ session()->getId() }}" user-name=" {{ $userName }}" />
 @endsection
