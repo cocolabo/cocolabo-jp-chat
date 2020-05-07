@@ -12,6 +12,9 @@
         <span class="input-group-text chats_index_send_btn" @click="send"><i class="fas fa-location-arrow"></i></span>
       </div>
     </div>
+    <div class="text-right mr-2 mt-1 text-muted small">
+      shift + enter で送信
+    </div>
   </div>
 </template>
 
