@@ -30,7 +30,10 @@ export default {
       }
 
       this.$emit('parent-send', this.message)
+
       this.message = null
+      this.$refs.focusMessage.focus()
+      event.preventDefault()
     },
   },
 }
