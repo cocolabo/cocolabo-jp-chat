@@ -10,7 +10,7 @@
   &_send_btn {
     background-color: $teal;
     border-radius: 0 15px 15px 0;
-    color: white;
+    color: $white;
     cursor: pointer;
   }
 
@@ -25,7 +25,8 @@
       @include media-breakpoint-up(xs) {
         margin-left: 5px;
       }
-      background-color: $blue;
+      background-color: $white;
+      border: 1px solid $black;
     }
 
     &__right {
