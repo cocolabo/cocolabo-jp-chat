@@ -1,7 +1,17 @@
 <template>
-  <div>
-    <input v-model="message" type="text" @keydown.enter="send" />
-    <button @click="send">></button>
+  <div class="card-footer bg-transparent">
+    <div class="input-group">
+      <textarea
+        ref="focusMessage"
+        v-model.trim="message"
+        class="form-control"
+        placeholder="Type your message..."
+        @keydown.shift.enter="send"
+      ></textarea>
+      <div class="input-group-append">
+        <span class="input-group-text chats_index_send_btn" @click="send"><i class="fas fa-location-arrow"></i></span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -15,9 +25,10 @@ export default {
   },
   methods: {
     send(event) {
-      if (event.keyCode !== undefined && event.keyCode !== 13) {
+      if (this.message === null || this.message === '') {
         return
       }
+
       this.$emit('parent-send', this.message)
       this.message = null
     },

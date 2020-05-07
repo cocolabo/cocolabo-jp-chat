@@ -5,10 +5,13 @@
 @section('description', 'チャットアプリです')
 
 @section('content')
-  <div>
+  <div class="mx-auto w-50 pt-5">
     <form action="{{ route('chat.index') }}" method="GET">
-      名前：<input type="text" name="user_name" maxlength="50"><br>
-      <button type="submit">チャット開始</button>
+      <div class="form-group">
+        <label for="name">名前</label>
+        <input id="name" type="test" class="form-control" id="name" placeholder="Enter name" maxlength="20">
+      </div>
+      <button type="submit" class="btn btn-primary">チャット開始</button>
     </form>
   </div>
 @endsection
